@@ -1,13 +1,4 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
 import React, {useState} from 'react';
-import type {Node} from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -19,13 +10,11 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import SystemNavigationBar from 'react-native-system-navigation-bar';
-import {IconMoon} from './src/components/Icons.component';
-import { NavigationContainer } from '@react-navigation/native'
-import { createStackNavigator } from '@react-navigation/stack'
+import {IconMoon} from '../components/Icons.component';
 
-const Stack= createStackNavigator();
 
-const App: () => Node = () => {
+
+const MainScreen = () => {
   SystemNavigationBar.setNavigationColor('white');
 
   const [bannerVisible, setbannerVisible] = useState(true);
@@ -97,7 +86,7 @@ const App: () => Node = () => {
                   style={{
                     paddingTop: 26,
                     paddingRight: 23,
-                      zIndex:10,
+                    zIndex: 10,
                   }}>
                   <IconMoon color={'white'} size={14} name="close" />
                 </TouchableOpacity>
@@ -307,4 +296,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default MainScreen;
