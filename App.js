@@ -50,15 +50,27 @@ const App: () => Node = () => {
             <Image source={require('./src/assets/images/Group1685.png')} />
           </View>
         </View>
-          {/* Fasting tracker */}
-        <View style={[styles.container, {marginTop:20}]}>
-            <Image style={{width:'100%'}}
-                source={require('./src/assets/images/Banner.png')} />
+        {/* Fasting tracker */}
+        <View style={[styles.container, {marginTop: 20}]}>
+          <Image
+            style={{width: '100%'}}
+            source={require('./src/assets/images/Banner.png')}
+          />
         </View>
-          {/* Progress today */}
-          <View>
-
+        {/* Progress today */}
+        <View style={[styles.container,{marginTop: 32}]}>
+          <View style={{flexDirection:'row', justifyContent: 'space-between', width:'100%',
+              alignItems: 'center'}}>
+            <Text style={styles.title}> Progress today </Text>
+            <Text style={styles.details}> details </Text>
           </View>
+            <View  style={{marginTop:16}}>
+                <Image
+                    style={{}}
+                    source={require('./src/assets/images/Frame3177.png')}
+                />
+            </View>
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
@@ -77,10 +89,22 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     color: '#858692',
   },
-    container :{
-        justifyContent: 'center',
-        alignItems: 'center',
-    }
+  container: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  title: {
+    fontSize: 18,
+    fontFamily: 'Manrope-VariableFont_wght',
+    fontWeight: '700',
+    color: '#070934',
+  },
+  details: {
+    fontSize: 14,
+    fontFamily: 'Manrope-VariableFont_wght',
+    fontWeight: '500',
+    color: '#070934',
+  },
 });
 
 export default App;
