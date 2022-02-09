@@ -12,21 +12,15 @@ import {
 import SystemNavigationBar from 'react-native-system-navigation-bar';
 import {IconMoon} from '../components/Icons.component';
 
-
-
-const MainScreen = () => {
+const MainScreen = (props) => {
   SystemNavigationBar.setNavigationColor('white');
 
   const [bannerVisible, setbannerVisible] = useState(true);
 
   return (
     <SafeAreaView>
-      <StatusBar
-        barStyle={'light-content'}
-        translucent={true}
-        backgroundColor="white"
-      />
-      <View>
+      <View style={{backgroundColor:'white'}}>
+          <StatusBar/>
         <ScrollView
           contentInsetAdjustmentBehavior="automatic"
           contentContainerStyle={{
@@ -40,12 +34,12 @@ const MainScreen = () => {
               justifyContent: 'space-between',
               alignItems: 'center',
             }}>
-            <View style={{marginTop: 70}}>
+            <View style={{marginTop: 30}}>
               <Text style={styles.headerText}>Hi, Helen</Text>
               <Text style={styles.subheaderText}>You have done 10 fasts</Text>
             </View>
-            <View style={{marginTop: 70}}>
-              <Image source={require('./src/assets/images/Group1685.png')} />
+            <View style={{marginTop: 30}}>
+              <Image source={require('../assets/images/Group1685.png')} />
             </View>
           </View>
           {/* Fasting tracker */}
@@ -95,7 +89,7 @@ const MainScreen = () => {
               <View style={{position: 'absolute', right: 0}}>
                 <Image
                   style={{width: 170}}
-                  source={require('./src/assets/images/Group565.png')}
+                  source={require('../assets/images/Group565.png')}
                 />
               </View>
             </View>
@@ -125,7 +119,7 @@ const MainScreen = () => {
               style={{marginTop: 16, width: '100%'}}>
               <Image
                 style={{width: '100%'}}
-                source={require('./src/assets/images/Frame3177.png')}
+                source={require('../assets/images/Frame3177.png')}
               />
             </TouchableOpacity>
             <View
@@ -139,13 +133,13 @@ const MainScreen = () => {
               <TouchableOpacity onPress={() => {}}>
                 <Image
                   style={{}}
-                  source={require('./src/assets/images/Frame161.png')}
+                  source={require('../assets/images/Frame161.png')}
                 />
               </TouchableOpacity>
               <TouchableOpacity onPress={() => {}}>
                 <Image
                   style={{}}
-                  source={require('./src/assets/images/Frame158.png')}
+                  source={require('../assets/images/Frame158.png')}
                 />
               </TouchableOpacity>
             </View>
@@ -176,15 +170,13 @@ const MainScreen = () => {
                 marginTop: 16,
               }}>
               <TouchableOpacity onPress={() => {}} style={{marginRight: 12}}>
-                <Image source={require('./src/assets/images/Frame3215.png')} />
+                <Image source={require('../assets/images/Frame3215.png')} />
               </TouchableOpacity>
               <TouchableOpacity onPress={() => {}} style={{marginRight: 12}}>
-                <Image
-                  source={require('./src/assets/images/Frame3215(1).png')}
-                />
+                <Image source={require('../assets/images/Frame3215(1).png')} />
               </TouchableOpacity>
               <TouchableOpacity onPress={() => {}} style={{marginRight: 12}}>
-                <Image source={require('./src/assets/images/Frame3215.png')} />
+                <Image source={require('../assets/images/Frame3215.png')} />
               </TouchableOpacity>
             </ScrollView>
           </View>
@@ -213,7 +205,11 @@ const MainScreen = () => {
               <Text style={[styles.tabTextActive, {marginLeft: 9}]}>main</Text>
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={() => {}}
+              onPress={() => {
+
+                  props.navigation.navigate('OnboardingScreen');
+
+              }}
               style={{
                 backgroundColor: '#7573F0',
                 alignItems: 'center',

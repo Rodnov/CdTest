@@ -12,66 +12,64 @@ import {
 import SystemNavigationBar from 'react-native-system-navigation-bar';
 import {IconMoon} from '../components/Icons.component';
 
-const OnboardingScreen = props => {
-  SystemNavigationBar.setNavigationColor('white');
+const OnboardingScreen = (props) => {
+  SystemNavigationBar.setNavigationColor('#EBEBFC');
 
   const [bannerVisible, setbannerVisible] = useState(true);
 
   return (
     <SafeAreaView>
-      <StatusBar
-        barStyle={'light-content'}
-        translucent={true}
-        backgroundColor="white"
-      />
-      <View>
-        <ScrollView>
-        </ScrollView>
-        <View style={{marginLeft: 16, marginRight: 16}}>
-          <View
-            style={{
-              height: 70,
-              width: '100%',
-              backgroundColor: 'white',
-              justifyContent: 'space-around',
-              alignItems: 'center',
-              position: 'absolute',
-              bottom: 32,
-              borderRadius: 32,
-              flexDirection: 'row',
+      <View style={{backgroundColor: '#EBEBFC', height: '100%'}}>
+        <StatusBar />
+        <View style={{marginTop: 24}}>
+          <ScrollView
+            contentInsetAdjustmentBehavior="automatic"
+            contentContainerStyle={{
+              marginLeft: 16,
+              marginRight: 16,
+              height: '100%',
             }}>
-            <TouchableOpacity
-              onPress={() => {}}
+            {/* HEADER */}
+            <View style={{flexDirection:'row', alignItems:'center'}}>
+              <View >
+                <TouchableOpacity onPress={() => {
+                    props.navigation.navigate('MainScreen');
+                }} style={{}}>
+                  <IconMoon color={'#070934'} size={14} name="left" />
+                </TouchableOpacity>
+              </View>
+              <View style={{width: '90%',marginLeft: 22, height: 8,backgroundColor:'white', borderRadius: 60}}>
+                <View style={{height: 8, width: '80%', backgroundColor:'#7573F0', borderRadius: 60 }} >
+                </View>
+              </View>
+            </View>
+              <Text style={styles.title}>What's your current weight? </Text>
+          </ScrollView>
+          <View style={{marginLeft: 16, marginRight: 16}}>
+            <View
               style={{
-                marginLeft: 9,
-                flexDirection: 'row',
-                alignItems: 'center',
-              }}>
-              <IconMoon color={'#070934'} size={16} name="Home" />
-              <Text style={[styles.tabTextActive, {marginLeft: 9}]}>main</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => {}}
-              style={{
+                height: 54,
+                width: '100%',
                 backgroundColor: '#7573F0',
+                justifyContent: 'space-around',
                 alignItems: 'center',
-                justifyContent: 'center',
-                borderRadius: 48,
-                width: 48,
-                height: 48,
-              }}>
-              <IconMoon color={'white'} size={24} name="plus" />
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => {}}
-              style={{
-                marginLeft: 9,
+                position: 'absolute',
+                bottom: 32,
+                borderRadius: 32,
                 flexDirection: 'row',
-                alignItems: 'center',
               }}>
-              <IconMoon color={'#A9AAB8'} size={18} name="journal" />
-              <Text style={styles.tabTextNotActive}>journal</Text>
-            </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => {  props.navigation.navigate('MainScreen');}}
+                style={{
+                  marginLeft: 9,
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                }}>
+                <Text style={styles.buttonText}>
+                  Continue
+                </Text>
+              </TouchableOpacity>
+            </View>
           </View>
         </View>
       </View>
@@ -80,58 +78,20 @@ const OnboardingScreen = props => {
 };
 
 const styles = StyleSheet.create({
-  headerText: {
-    fontSize: 24,
-    fontFamily: 'Manrope-VariableFont_wght',
-    fontWeight: '800',
-    color: '#070934',
-  },
-  subheaderText: {
+    buttonText: {
     fontSize: 16,
     fontFamily: 'Manrope-VariableFont_wght',
-    fontWeight: '500',
-    color: '#858692',
-  },
-  bannerTitle: {
-    fontSize: 18,
-    fontFamily: 'Manrope-VariableFont_wght',
-    fontWeight: '700',
+    fontWeight: '600',
     color: 'white',
   },
-  bannersubTitle: {
-    fontSize: 16,
-    fontFamily: 'Manrope-VariableFont_wght',
-    fontWeight: '400',
-    color: 'white',
-  },
-  container: {
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  title: {
-    fontSize: 18,
-    fontFamily: 'Manrope-VariableFont_wght',
-    fontWeight: '700',
-    color: '#070934',
-  },
-  details: {
-    fontSize: 14,
-    fontFamily: 'Manrope-VariableFont_wght',
-    fontWeight: '500',
-    color: '#070934',
-  },
-  tabTextActive: {
-    fontSize: 12,
-    fontFamily: 'Manrope-VariableFont_wght',
-    fontWeight: '500',
-    color: '#070934',
-  },
-  tabTextNotActive: {
-    fontSize: 12,
-    fontFamily: 'Manrope-VariableFont_wght',
-    fontWeight: '500',
-    color: '#A9AAB8',
-  },
+    title:{
+        fontSize: 24,
+        fontFamily: 'Manrope-VariableFont_wght',
+        fontWeight: '800',
+        color: '#070934',
+        textAlign:'center',
+        marginTop:40
+    }
 });
 
 export default OnboardingScreen;
